@@ -1,10 +1,20 @@
+using LisovaAuditSystem.Workers.API.Common.Extensions;
+using LisovaAuditSystem.Workers.API.Endpoints;
+
 namespace LisovaAuditSystem.Workers.API;
 
-public static class Program
+public class Program
 {
+    protected Program()
+    {
+    }
+
     public static void Main(string[] args)
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddDataServices(builder.Configuration);
+        builder.Services.AddBusinessServices();
 
         builder.Services.AddAuthorization();
 
@@ -22,6 +32,8 @@ public static class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
+
+        app.MapWorkersEndpoints();
 
         app.Run();
     }
