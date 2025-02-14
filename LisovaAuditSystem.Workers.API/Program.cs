@@ -3,12 +3,8 @@ using LisovaAuditSystem.Workers.API.Endpoints;
 
 namespace LisovaAuditSystem.Workers.API;
 
-public class Program
+public static class Program
 {
-    protected Program()
-    {
-    }
-
     public static void Main(string[] args)
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
