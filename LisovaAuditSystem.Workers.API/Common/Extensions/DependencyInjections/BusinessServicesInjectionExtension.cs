@@ -1,6 +1,6 @@
 ﻿using LisovaAuditSystem.Workers.API.Services;
 
-namespace LisovaAuditSystem.Workers.API.Common.Extensions;
+namespace LisovaAuditSystem.Workers.API.Common.Extensions.DependencyInjections;
 
 public static class BusinessServicesInjectionExtension
 {

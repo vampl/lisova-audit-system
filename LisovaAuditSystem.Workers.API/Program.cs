@@ -1,4 +1,5 @@
 using LisovaAuditSystem.Workers.API.Common.Extensions;
+using LisovaAuditSystem.Workers.API.Common.Extensions.DependencyInjections;
 using LisovaAuditSystem.Workers.API.Endpoints;
 
 namespace LisovaAuditSystem.Workers.API;

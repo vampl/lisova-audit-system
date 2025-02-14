@@ -4,7 +4,7 @@ using LisovaAuditSystem.Workers.API.Interfaces.Infrastructure.Repository;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LisovaAuditSystem.Workers.API.Common.Extensions;
+namespace LisovaAuditSystem.Workers.API.Common.Extensions.DependencyInjections;
 
 public static class DataServicesInjectionExtension
 {
