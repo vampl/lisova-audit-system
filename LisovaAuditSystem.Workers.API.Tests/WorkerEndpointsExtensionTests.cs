@@ -2,6 +2,7 @@ using FluentAssertions;
 
 using LisovaAuditSystem.Workers.API.Dtos;
 using LisovaAuditSystem.Workers.API.Endpoints;
+using LisovaAuditSystem.Workers.API.Interfaces.Services;
 using LisovaAuditSystem.Workers.API.Models.Payloads;
 using LisovaAuditSystem.Workers.API.Models.Requests;
 using LisovaAuditSystem.Workers.API.Models.Responses;

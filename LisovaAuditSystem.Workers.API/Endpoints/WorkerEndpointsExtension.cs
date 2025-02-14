@@ -1,4 +1,5 @@
 ﻿using LisovaAuditSystem.Workers.API.Common.Extensions.Mappings;
+using LisovaAuditSystem.Workers.API.Interfaces.Services;
 using LisovaAuditSystem.Workers.API.Models.Payloads;
 using LisovaAuditSystem.Workers.API.Models.Requests;
 using LisovaAuditSystem.Workers.API.Models.Responses;

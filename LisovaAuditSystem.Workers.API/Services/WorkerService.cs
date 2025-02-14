@@ -1,5 +1,6 @@
 ﻿using LisovaAuditSystem.Workers.API.Dtos;
 using LisovaAuditSystem.Workers.API.Interfaces.Infrastructure.Repository;
+using LisovaAuditSystem.Workers.API.Interfaces.Services;
 
 namespace LisovaAuditSystem.Workers.API.Services;
 

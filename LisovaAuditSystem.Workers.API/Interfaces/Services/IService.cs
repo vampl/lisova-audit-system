@@ -1,4 +1,4 @@
-﻿namespace LisovaAuditSystem.Workers.API.Services;
+﻿namespace LisovaAuditSystem.Workers.API.Interfaces.Services;
 
 public interface IService<TDto>
 {

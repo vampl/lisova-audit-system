@@ -1,4 +1,5 @@
-﻿using LisovaAuditSystem.Workers.API.Services;
+﻿using LisovaAuditSystem.Workers.API.Interfaces.Services;
+using LisovaAuditSystem.Workers.API.Services;
 
 namespace LisovaAuditSystem.Workers.API.Common.Extensions.DependencyInjections;
 
