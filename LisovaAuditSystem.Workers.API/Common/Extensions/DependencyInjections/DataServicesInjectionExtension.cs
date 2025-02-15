@@ -16,5 +16,6 @@ public static class DataServicesInjectionExtension
                     connectionString: configuration.GetConnectionString("LisovaDb")));
 
         services.AddScoped<IWorkerRepository, WorkerRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
     }
 }
