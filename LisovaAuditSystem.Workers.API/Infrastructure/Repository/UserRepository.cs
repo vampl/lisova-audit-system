@@ -45,6 +45,16 @@ public class UserRepository(WorkersContext context) : IUserRepository
             throw new InvalidOperationException($"User with id: {addDto.Id} already exists.");
         }
 
+        if (await _set.AnyAsync(user => user.UserName == addDto.UserName))
+        {
+            throw new InvalidOperationException($"User with username: {addDto.UserName} already exists.");
+        }
+
+        if (await _set.AnyAsync(user => user.Email == addDto.Email))
+        {
+            throw new InvalidOperationException($"User with email: {addDto.Email} already exists.");
+        }
+
         try
         {
             await _set.AddAsync(addDto.ToEntity());
