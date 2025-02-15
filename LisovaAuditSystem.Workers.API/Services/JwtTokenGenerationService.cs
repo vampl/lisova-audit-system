@@ -6,7 +6,7 @@ using LisovaAuditSystem.Workers.API.Common.Configurations;
 
 using Microsoft.IdentityModel.Tokens;
 
-namespace LisovaAuditSystem.Workers.API.Services.Authentication;
+namespace LisovaAuditSystem.Workers.API.Services;
 
 public class JwtTokenGenerationService(JwtConfiguration configuration)
 {
