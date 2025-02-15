@@ -29,6 +29,7 @@ public static class Program
         app.UseAuthorization();
 
         app.MapWorkersEndpoints();
+        app.MapAuthenticationEndpoints();
 
         app.Run();
     }
