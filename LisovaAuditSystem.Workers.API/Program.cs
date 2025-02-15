@@ -1,4 +1,3 @@
-using LisovaAuditSystem.Workers.API.Common.Extensions;
 using LisovaAuditSystem.Workers.API.Common.Extensions.DependencyInjections;
 using LisovaAuditSystem.Workers.API.Endpoints;
 
@@ -12,11 +11,7 @@ public static class Program
 
         builder.Services.AddDataServices(builder.Configuration);
         builder.Services.AddBusinessServices();
-
-        builder.Services.AddAuthorization();
-
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddApiServices(builder.Configuration);
 
         WebApplication app = builder.Build();
 
@@ -28,6 +23,9 @@ public static class Program
 
         app.UseHttpsRedirection();
 
+        app.UseCors();
+
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapWorkersEndpoints();
