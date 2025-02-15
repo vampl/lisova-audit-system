@@ -3,7 +3,6 @@ using LisovaAuditSystem.Workers.API.Interfaces.Services;
 using LisovaAuditSystem.Workers.API.Models.Payloads;
 using LisovaAuditSystem.Workers.API.Models.Requests;
 using LisovaAuditSystem.Workers.API.Models.Responses;
-using LisovaAuditSystem.Workers.API.Services;
 
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -17,11 +16,16 @@ public static class WorkerEndpointsExtension
     {
         RouteGroupBuilder workersEndpointsGroup = routes.MapGroup("api/v1/workers");
 
-        workersEndpointsGroup.MapGet("", GetWorkersAsync);
-        workersEndpointsGroup.MapGet("{workerId:guid}", GetWorkerAsync);
-        workersEndpointsGroup.MapPost("", PostWorkerAsync);
-        workersEndpointsGroup.MapPut("", PutWorkerAsync);
-        workersEndpointsGroup.MapDelete("{workerId:guid}", DeleteWorkerAsync);
+        workersEndpointsGroup.MapGet("", GetWorkersAsync)
+            .RequireAuthorization();
+        workersEndpointsGroup.MapGet("{workerId:guid}", GetWorkerAsync)
+            .RequireAuthorization();
+        workersEndpointsGroup.MapPost("", PostWorkerAsync)
+            .RequireAuthorization();
+        workersEndpointsGroup.MapPut("", PutWorkerAsync)
+            .RequireAuthorization();
+        workersEndpointsGroup.MapDelete("{workerId:guid}", DeleteWorkerAsync)
+            .RequireAuthorization();
     }
 
     public static async Task<Ok<GetWorkersResponse>>
