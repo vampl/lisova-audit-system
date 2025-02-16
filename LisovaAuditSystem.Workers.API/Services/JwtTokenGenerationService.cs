@@ -3,12 +3,13 @@ using System.Security.Claims;
 using System.Text;
 
 using LisovaAuditSystem.Workers.API.Common.Configurations;
+using LisovaAuditSystem.Workers.API.Interfaces.Infrastructure.Repository;
 
 using Microsoft.IdentityModel.Tokens;
 
 namespace LisovaAuditSystem.Workers.API.Services;
 
-public class JwtTokenGenerationService(JwtConfiguration configuration)
+public class JwtTokenGenerationService(JwtConfiguration configuration) : IJwtTokenGenerationService
 {
     public string Generate(Guid userId, string userName, string userEmail)
     {
