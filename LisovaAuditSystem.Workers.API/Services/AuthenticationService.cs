@@ -7,7 +7,7 @@ namespace LisovaAuditSystem.Workers.API.Services;
 public class AuthenticationService(
     IUserRepository userRepository,
     IPasswordHasher passwordHasher,
-    JwtTokenGenerationService tokenGenerationService)
+    IJwtTokenGenerationService tokenGenerationService)
     : IAuthenticationService
 {
     public async Task<string> RegisterAsync(UserRegisterCredentialsDto userRegisterCredentials)
