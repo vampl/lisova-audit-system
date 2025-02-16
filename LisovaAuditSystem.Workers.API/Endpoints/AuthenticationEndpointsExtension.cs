@@ -20,7 +20,7 @@ public static class AuthenticationEndpointsExtension
             .AllowAnonymous();
     }
 
-    private static async Task<Results<Ok<string>, BadRequest<string>, ProblemHttpResult>> PostUserRegistration(
+    public static async Task<Results<Ok<string>, BadRequest<string>, ProblemHttpResult>> PostUserRegistration(
         IAuthenticationService authenticationService,
         PostUserRegistrationRequest request)
     {
@@ -38,17 +38,13 @@ public static class AuthenticationEndpointsExtension
         {
             return TypedResults.BadRequest(exception.Message);
         }
-        catch (InvalidOperationException exception)
-        {
-            return TypedResults.BadRequest(exception.Message);
-        }
         catch (Exception exception)
         {
             return TypedResults.Problem(detail: exception.Message, statusCode: ProblemHttpResultStatusCode);
         }
     }
 
-    private static async Task<Results<Ok<string>, BadRequest<string>, NotFound<string>, ProblemHttpResult>> PostUserLogin(
+    public static async Task<Results<Ok<string>, BadRequest<string>, NotFound<string>, ProblemHttpResult>> PostUserLogin(
         IAuthenticationService authenticationService,
         PostUserLoginRequest request)
     {
@@ -60,15 +56,11 @@ public static class AuthenticationEndpointsExtension
                         email: request.PostUserLoginPayload.Email,
                         password: request.PostUserLoginPayload.Password)));
         }
-        catch (InvalidOperationException exception) when (exception.Message.Contains("already exists"))
-        {
-            return TypedResults.BadRequest(exception.Message);
-        }
         catch (InvalidOperationException exception) when (exception.Message.Contains("not found"))
         {
             return TypedResults.NotFound(exception.Message);
         }
-        catch (InvalidOperationException exception)
+        catch (InvalidOperationException exception) when (exception.Message.Contains("password"))
         {
             return TypedResults.BadRequest(exception.Message);
         }
